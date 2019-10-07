@@ -1,3 +1,4 @@
 # learning-react-native
 
-- [backend](backend)
+- [BackEnd](backend)
+- [FrontEnd](frontend)
