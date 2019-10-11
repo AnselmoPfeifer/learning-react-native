@@ -1,8 +1,10 @@
 const express = require('express') 
 const mongoose = require('mongoose')
 const routes = require('./routes')
-const dotenv = require('dotenv');
-dotenv.config();
+const dotenv = require('dotenv')
+const cors = require('cors')
+
+dotenv.config()
 
 const app = express()
 
@@ -19,6 +21,7 @@ mongoose.connect(
     useUnifiedTopology: true
 })
 
+app.use(cors({ origin: process.env['FRONTEND_URL']}))
 app.use(express.json())
 app.use(routes)
 app.listen(process.env['NODE_PORT'])
