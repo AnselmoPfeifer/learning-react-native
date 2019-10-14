@@ -1,12 +1,19 @@
-const express = require('express') 
+const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
+const path = require('path')
+
+const socketio = require('socket.io');
+const http = require('http');
+
 const routes = require('./routes')
 const dotenv = require('dotenv')
-const cors = require('cors')
+
+const app = express();
+const server = http.Server(app);
+const io = socketio(server);
 
 dotenv.config()
-
-const app = express()
 
 const mongoDbName = process.env['MONGO_DATABASE_NAME']
 const mongoDbUserName = process.env['MONGO_USER_NAME']
@@ -21,7 +28,9 @@ mongoose.connect(
     useUnifiedTopology: true
 })
 
-app.use(cors({ origin: process.env['FRONTEND_URL']}))
+app.use(cors())
 app.use(express.json())
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 app.use(routes)
+
 app.listen(process.env['NODE_PORT'])

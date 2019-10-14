@@ -1,4 +1,4 @@
 # learning-react-native
 
-- [BackEnd](backend)
-- [FrontEnd](frontend)
+- [BackEnd](backend/README.md)
+- [FrontEnd](frontend/README.md)

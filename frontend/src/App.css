@@ -72,7 +72,7 @@ body, input, button {
   font-size: 16px;
 }
 
-.content button.login {
+.content button.btn {
   border: 0;
   border-radius: 2px;
   width: 100%;
@@ -85,6 +85,6 @@ body, input, button {
   cursor: pointer;
 }
 
-.content button.login:hover {
+.content button.btn:hover {
   background: #e14f50;
 }
